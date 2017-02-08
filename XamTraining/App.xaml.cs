@@ -17,6 +17,7 @@ namespace XamTraining
 		protected override void OnStart()
 		{
 			MobileCenter.Start(typeof(Analytics), typeof(Crashes));
+			Analytics.Enabled = true;
 		}
 
 		protected override void OnSleep()

@@ -3,5 +3,6 @@
 	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 		<Label Text="Welcome to a Mobile Center Example!" />
 		<Button x:Name="TestCrash" Text="Test Crash" />
+		<Button x:Name="TestEvent" Text="Test Event" />
 	</StackLayout>
 </ContentPage>
