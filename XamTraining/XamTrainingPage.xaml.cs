@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace XamTraining
 {
@@ -7,6 +8,11 @@ namespace XamTraining
 		public XamTrainingPage()
 		{
 			InitializeComponent();
+
+			this.TestCrash.Clicked += (sender, e) =>
+			{
+				throw new Exception("Mobile Center Crash Example");
+			};
 		}
 	}
 }

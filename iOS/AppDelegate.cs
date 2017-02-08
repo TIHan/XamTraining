@@ -18,8 +18,7 @@ namespace XamTraining.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
-			MobileCenter.Start("7391035a-3740-46b7-ac05-5307db9c0bd4",
-					typeof(Analytics), typeof(Crashes));
+			MobileCenter.Start("7391035a-3740-46b7-ac05-5307db9c0bd4", typeof(Analytics), typeof(Crashes));
 
 			LoadApplication(new App());
 
