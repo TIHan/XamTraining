@@ -18,6 +18,10 @@ namespace XamTraining.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
+#if ENABLE_TEST_CLOUD
+			Xamarin.Calabash.Start();
+#endif
+
 			MobileCenter.Start("7391035a-3740-46b7-ac05-5307db9c0bd4", typeof(Analytics), typeof(Crashes));
 
 			LoadApplication(new App());
