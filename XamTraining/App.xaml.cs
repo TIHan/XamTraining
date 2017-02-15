@@ -5,29 +5,36 @@ using Microsoft.Azure.Mobile.Crashes;
 
 namespace XamTraining
 {
-	public partial class App : Application
-	{
-		public App()
-		{
-			InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
-			MainPage = new XamTrainingPage();
-		}
+            MainPage = new XamTrainingPage();
+        }
 
-		protected override void OnStart()
-		{
-			MobileCenter.Start(typeof(Analytics), typeof(Crashes));
-			Analytics.Enabled = true;
-		}
+        public static IAuthenticate Authenticator { get; private set; }
 
-		protected override void OnSleep()
-		{
-			// Handle when your app sleeps
-		}
+        public static void Init(IAuthenticate authenticator)
+        {
+            Authenticator = authenticator;
+        }
 
-		protected override void OnResume()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void OnStart()
+        {
+            MobileCenter.Start(typeof(Analytics), typeof(Crashes));
+            Analytics.Enabled = true;
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
 }

@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XamTraining" x:Class="XamTraining.XamTrainingPage" AutomationId="XamTrainingPage">
-	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-		<Label Text="Welcome to a Mobile Center Example!" />
-		<Button x:Name="TestCrash" Text="Test Crash" AutomationId="CrashButton"/>
-		<Button x:Name="TestEvent" Text="Test Event" AutomationId="EventButton"/>
+	<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
+        <Label Text="Welcome to a Mobile Center Example!" />
+        <Button x:Name="TestCrash" Text="Test Crash" AutomationId="CrashButton"/>
+        <Button x:Name="TestEvent" Text="Test Event" AutomationId="EventButton"/>
+		<StackLayout IsVisible="{Binding IsAuthenticated.Invert}">
+            <Button x:Name="LoginButton" Text="Sign-In" />
+        </StackLayout>
+        <StackLayout IsVisible="{Binding IsAuthenticated.Value}">
+			<StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                <Entry x:Name="TodoEntry" Placeholder="Enter Todo Item" HorizontalOptions="FillAndExpand" />
+                <Button x:Name="AddTodoItem" Text="Add" HorizontalOptions="End"/>
+            </StackLayout>
+            <Button x:Name="GetTodosButton" Text="Get Todos"/>
+            <ActivityIndicator x:Name="LoadingIndicator" IsRunning="false"/>
+            <ListView ItemsSource="{Binding TodoItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Grid.Column="0" Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
 	</StackLayout>
 </ContentPage>
